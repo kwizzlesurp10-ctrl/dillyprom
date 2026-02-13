@@ -8,9 +8,44 @@ A comprehensive technical specification viewer for the Prompt Vault - an Apache 
 3. **Accessible** - Complex technical content should be navigable and digestible through thoughtful organization and visual design
 
 **Complexity Level**: Light Application (multiple features with basic state)
-- This is an interactive technical documentation viewer that presents a comprehensive Spark architecture specification. It includes navigation between sections, code syntax highlighting, collapsible sections, and an organized view of complex technical content.
+- This is an interactive technical documentation viewer with a fully functional prompt management system. Users can add, edit, delete, and search their own prompts while exploring comprehensive Spark architecture specifications. Includes persistent storage, search/filter capabilities, and form validation.
 
 ## Essential Features
+
+**How-to-Use Guide**
+- Functionality: Provide step-by-step instructions for using the Prompt Vault system
+- Purpose: Help users understand how to add prompts, search, version, and analyze performance
+- Trigger: Viewing the "How to Use" tab
+- Progression: User opens tab → Guide displays with numbered steps and visual cards → User learns the workflow → User navigates to My Prompts to start
+- Success criteria: Clear instructions, easy to follow, comprehensive coverage of all features
+
+**Prompt Management System**
+- Functionality: Full CRUD operations (Create, Read, Update, Delete) for AI prompts with persistent storage
+- Purpose: Allow users to build and maintain their own prompt library
+- Trigger: Navigating to "My Prompts" tab and clicking "Add Prompt" or editing existing prompts
+- Progression: User clicks Add → Form dialog opens → User fills required fields → Submits → Prompt saved to storage → Success notification → Prompt appears in list
+- Success criteria: All data persists between sessions, forms validate properly, updates create new versions
+
+**Search and Filter**
+- Functionality: Real-time search across prompt text and tags, category filtering
+- Purpose: Quickly locate specific prompts in large libraries
+- Trigger: Typing in search input or selecting category filter
+- Progression: User types/selects → Results filter instantly → Count updates → Filtered prompts display
+- Success criteria: Fast response, accurate matching, clear feedback on results count
+
+**Version Tracking**
+- Functionality: Automatically increment version numbers when prompts are updated
+- Purpose: Track prompt evolution and improvements over time
+- Trigger: Updating an existing prompt
+- Progression: User edits prompt → Saves changes → Version increments → Updated timestamp recorded → New version displayed
+- Success criteria: Version history maintained, timestamps accurate, no data loss
+
+**Performance Metrics**
+- Functionality: Store and display rating, success rate, and usage count for each prompt
+- Purpose: Identify top-performing prompts and optimize prompt library
+- Trigger: Adding or editing a prompt with metric values
+- Progression: User inputs metrics → Saves prompt → Metrics display in prompt card → High-rated prompts show star indicator
+- Success criteria: Metrics persist, display clearly, inform decision-making
 
 **Section Navigation**
 - Functionality: Navigate between different sections of the technical specification (Data Model, Ingestion, Processing, Storage, etc.)
@@ -49,6 +84,11 @@ A comprehensive technical specification viewer for the Prompt Vault - an Apache 
 
 ## Edge Case Handling
 
+- **Empty Prompt Library**: Display welcoming empty state with clear call-to-action to add first prompt
+- **No Search Results**: Show helpful message with prompt count and suggestion to adjust filters
+- **Invalid Form Data**: Validate required fields and show error toast before submission
+- **Long Prompt Text**: Use text wrapping and scrollable areas to prevent layout breaks
+- **Many Tags**: Wrap tag badges and limit display if needed
 - **Empty Search Results**: Display helpful message suggesting alternative search terms or browsing navigation
 - **Long Code Blocks**: Implement horizontal scrolling with clear scroll indicators to prevent layout breaks
 - **Mobile Viewing**: Collapse navigation into hamburger menu, ensure code blocks are horizontally scrollable

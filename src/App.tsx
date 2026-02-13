@@ -16,12 +16,16 @@ import {
   MagnifyingGlass,
   Copy,
   CheckCircle,
-  Sparkle
+  Sparkle,
+  BookOpen,
+  Plus
 } from '@phosphor-icons/react'
 import { toast, Toaster } from 'sonner'
+import { PromptManager } from '@/components/PromptManager'
+import { HowToUse } from '@/components/HowToUse'
 
 function App() {
-  const [activeTab, setActiveTab] = useState('overview')
+  const [activeTab, setActiveTab] = useState('how-to-use')
   const [copiedCode, setCopiedCode] = useState<string | null>(null)
 
   const copyToClipboard = async (code: string, id: string) => {
@@ -162,7 +166,15 @@ function App() {
 
         <div className="container mx-auto px-6 py-8">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-5 mb-8 h-auto p-1 bg-muted/50">
+          <TabsList className="grid w-full grid-cols-7 mb-8 h-auto p-1 bg-muted/50">
+            <TabsTrigger value="how-to-use" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+              <BookOpen className="mr-2" />
+              How to Use
+            </TabsTrigger>
+            <TabsTrigger value="manage-prompts" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+              <Plus className="mr-2" />
+              My Prompts
+            </TabsTrigger>
             <TabsTrigger value="overview" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
               <Database className="mr-2" />
               Overview
@@ -184,6 +196,14 @@ function App() {
               Storage
             </TabsTrigger>
           </TabsList>
+
+          <TabsContent value="how-to-use">
+            <HowToUse />
+          </TabsContent>
+
+          <TabsContent value="manage-prompts">
+            <PromptManager />
+          </TabsContent>
 
           <TabsContent value="overview" className="space-y-6">
             <Card className="p-8 border-primary/20">
