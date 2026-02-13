@@ -18,7 +18,7 @@ import {
   CheckCircle,
   Sparkle
 } from '@phosphor-icons/react'
-import { toast } from 'sonner'
+import { toast, Toaster } from 'sonner'
 
 function App() {
   const [activeTab, setActiveTab] = useState('overview')
@@ -145,20 +145,22 @@ function App() {
   )
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="border-b border-border bg-card">
-        <div className="container mx-auto px-6 py-8">
-          <div className="flex items-center gap-3 mb-2">
-            <Sparkle size={40} weight="fill" className="text-accent" />
-            <h1 className="text-4xl font-bold tracking-tight">Prompt Vault</h1>
+    <>
+      <Toaster position="top-center" richColors />
+      <div className="min-h-screen bg-background">
+        <div className="border-b border-border bg-card">
+          <div className="container mx-auto px-6 py-8">
+            <div className="flex items-center gap-3 mb-2">
+              <Sparkle size={40} weight="fill" className="text-accent" />
+              <h1 className="text-4xl font-bold tracking-tight">Prompt Vault</h1>
+            </div>
+            <p className="text-lg text-muted-foreground">
+              Apache Spark Technical Specification for Scalable AI Prompt Management
+            </p>
           </div>
-          <p className="text-lg text-muted-foreground">
-            Apache Spark Technical Specification for Scalable AI Prompt Management
-          </p>
         </div>
-      </div>
 
-      <div className="container mx-auto px-6 py-8">
+        <div className="container mx-auto px-6 py-8">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <TabsList className="grid w-full grid-cols-5 mb-8 h-auto p-1 bg-muted/50">
             <TabsTrigger value="overview" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
@@ -1294,6 +1296,7 @@ print(f"High performers: {high_performers.count()}")`}
         </Tabs>
       </div>
     </div>
+    </>
   )
 }
 
