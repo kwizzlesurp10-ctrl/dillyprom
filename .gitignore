@@ -32,3 +32,33 @@ pids
 .devcontainer/
 
 .spark-workbench-id
+
+# ── Scala / sbt ───────────────────────────────────────────────────────────────
+target/
+project/target/
+project/project/
+.bsp/
+.metals/
+.bloop/
+*.class
+*.jar
+*.war
+
+# sbt managed
+lib_managed/
+src_managed/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# scalafmt cache
+.scalafmt-*.conf
+
+# Spark / Delta Lake local output
+spark-warehouse/
+derby.log
+metastore_db/
+checkpoints/
